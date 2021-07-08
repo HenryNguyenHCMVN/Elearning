@@ -1,0 +1,36 @@
+<!-- slidebar -->
+
+<mat-drawer-container autosize class="example-container" (click)="showFiller = !showFiller">
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+
+        <button mat-button routerLink="/admin">Home Admin Page</button>
+        <div>
+            <button mat-button routerLink="/course-management">Course Management</button>
+        </div>
+        <div>
+            <button mat-button routerLink="/user-management">User Management</button>
+        </div>
+    </mat-drawer>
+    <mat-toolbar color="primary">
+        <button type="button" mat-button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+        <button mat-button style="font-size: 1rem;" routerLink="/admin">Admin</button>
+        <button mat-button color="accent" style="font-size: 1rem;" routerLink="/">Back Home Page</button>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+    <div class="container">
+        <h1>User Details</h1>
+        <div *ngIf="thongTinNguoiDung">
+            <mat-card>Username: {{thongTinNguoiDung.taiKhoan}}</mat-card>
+            <mat-card>Email: {{thongTinNguoiDung.email}}</mat-card>
+            <mat-card>Name: {{thongTinNguoiDung.hoTen}}</mat-card>
+            <mat-card>User Type Code: {{thongTinNguoiDung.maLoaiNguoiDung}}</mat-card>
+            <mat-card>Group code: {{thongTinNguoiDung.maNhom}}</mat-card>
+            <mat-card>Phone: {{thongTinNguoiDung.soDT}}</mat-card>
+        </div>
+    </div>
+
+</mat-drawer-container>

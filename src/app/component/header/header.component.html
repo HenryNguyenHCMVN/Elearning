@@ -1,0 +1,35 @@
+<mat-toolbar>
+    <span>
+      <button class="courseLogo" mat-button routerLink="/">COURSERA-VN</button>
+    </span>
+
+    <!-- Explore -->
+    <span class="btnExplore">
+      <button mat-button [matMenuTriggerFor]="menu">Explore</button>
+      <mat-menu #menu="matMenu">
+        <span  *ngFor="let category of categoryList">
+        <button mat-menu-item >{{category.tenDanhMuc}}</button>
+        <!-- routerLink="/detail/{{course.maKhoaHoc}}" -->
+      </span>
+    </mat-menu>
+    </span>
+    <!-- Explore -->
+
+    <!-- admin -->
+    <button mat-raised-button color="warn" routerLink="/admin">Admin</button>
+    <!-- admin -->
+
+    <!-- search -->
+    <input type="text" placeholder="What do you learn?">
+    <span class="example-spacer"></span>
+    <!-- search -->
+
+
+    <span>
+      <button class="btnSign" mat-button routerLink="/signin">Log In </button>
+      <button class="btnExplore" mat-raised-button routerLink="/signup">Sign Up</button>
+    </span>
+    <button mat-button *ngIf="currentUser" style="color: black;">
+      {{currentUser.hoTen}}
+    </button>
+</mat-toolbar>
